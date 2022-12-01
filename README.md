@@ -10,8 +10,6 @@
 
 > ## 일단 확장기능 부터 설치 해 보았습니다.
 
----
-
 다음과 같은 코드가 있는데요,
 
 ```javascript
@@ -26,8 +24,6 @@ console.log("bar");
 
 > ## 이번에는 npm install --save-dev eslint 설치
 
----
-
 입력해 주고 나면
 
 ```javascript
@@ -40,7 +36,7 @@ package.json >
 
 package.json 파일에 디팬던시가 추가됩니다. 역시 이상태에서도 아무런 동작을 안하는것 같습니다.
 
-![exampleNo1](https://user-images.githubusercontent.com/105046423/204788385-f5e67734-5ac2-4ac6-ad12-ba027b2cefaa.png)
+![exampleNo1](https://user-images.githubusercontent.com/105046423/204788385-f5e67734-5ac2-4ac6-ad12-ba027b2cefaa.png)  
 (아무런 변화가 없음)
 
 ---
@@ -117,4 +113,4 @@ congif 파일을 어떠한 형식으로 작성할지 묻습니다. JSON 이나 �
 
 `npm run lint`
 
-를 입력시 eslint 가 영역내 파일을 모두 검사하여 오류를 보내주게 되어있습니다. 
+를 입력시 eslint 가 영역내 파일을 모두 검사하여 오류를 보내주게 되어있습니다.
