@@ -8,21 +8,21 @@
 
 처음 eslint 를 적용하려 했을때 익스텐션에 이미 eslint 를 적용시킬 수 있다는 걸 알고 있었습니다. 문득 확장기능에서의 eslint 와 노드 패키지 매니저를 통한 eslint 설치에는 어떤 차이가 있는걸까 궁금해 졌습니다.많은 정보 글에서는 직접 npm을 사용하여 설치를 하거나 두개 다 설치 하거든요.
 
-> ## 일단 확장기능 부터 설치 해 보았습니다.
+## 일단 확장기능 부터 설치 해 보았습니다.
 
 다음과 같은 코드가 있는데요,
 
 ```javascript
-const forNoUse = "사용하지 않는 변ㅅ";
+const forNoUse = "사용하지 않는 변수";
 
-console.log("foo");
-console.log("bar");
+console.log("foo");;;;;;;
+console.log("bar")
 ```
 
 확장기능 설치 만으로는 eslint 가 작동하는것 처럼 보이지 않습니다.  
 기대처럼 작동한다면 중복되는 세미콜론과 사용하지 않는 변수 그리고 세미콜론이 없는것 등을 잡아 주어야 하거든요.
 
-> ## 이번에는 npm install --save-dev eslint 설치
+## 이번에는 npm install --save-dev eslint 설치
 
 입력해 주고 나면
 
