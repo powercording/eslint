@@ -15,18 +15,17 @@
 ```javascript
 const forNoUse = "사용하지 않는 변수";
 
-console.log("foo");;;;;;;
-console.log("bar")
+console.log("foo");
+console.log("bar");
 ```
 
 확장기능 설치 만으로는 eslint 가 작동하는것 처럼 보이지 않습니다.  
 기대처럼 작동한다면 중복되는 세미콜론과 사용하지 않는 변수 그리고 세미콜론이 없는것 등을 잡아 주어야 하거든요.
 
 ## 이번에는 Eslint 설치
-> ```
-> npm install --save-dev eslint
-> ```
 
+터미널에   
+`npm install --save-dev eslint`  
 입력해 주고 나면
 
 ```javascript
@@ -42,11 +41,12 @@ package.json 파일에 디팬던시가 추가됩니다. 역시 이상태에서�
 ![exampleNo1](https://user-images.githubusercontent.com/105046423/204788385-f5e67734-5ac2-4ac6-ad12-ba027b2cefaa.png)  
 (아무런 변화가 없음)
 
-## eslint 설정을 적용해야 한다. 
+## eslint 설정을 적용해야 한다.
+
 eslint 를 프로젝트에 적용 시키기 위해서 설정을 해 주어야 합니다.
-> ```
-> npm init @eslint/config
-> ```
+
+`npm init @eslint/config`
+
 입력을 하면 아래와 같이 터미널에서 여러가지 환경에 대한 선택을 하게 됩니다.
 
 ![exampleNo3](https://user-images.githubusercontent.com/105046423/204788389-78a0b187-64d6-49ad-a6ef-dc416681c61f.png)
@@ -57,12 +57,10 @@ eslint 를 프로젝트에 적용 시키기 위해서 설정을 해 주어야 �
 
 ![errorExampleNo1](https://user-images.githubusercontent.com/105046423/204788439-89775b07-cdf4-4d3f-8612-602b4f29a6d7.png)
 작은 따옴표를 사용해야 하고, 새 라인이 필요하고, 세미콜론이 없고  
-오우....
+오우....  
 
 ![errorExampleNo2](https://user-images.githubusercontent.com/105046423/204788444-7d565fc3-47ae-4e6d-bb84-e0517e14f47c.png)  
 세미콜론이 많다고 불평하네요.
-
-
 
 > ## 그럼 VScode 익스텐션은 기능이 뭐야??
 
@@ -73,10 +71,9 @@ eslint 를 프로젝트에 적용 시키기 위해서 설정을 해 주어야 �
 
 익스텐션을 disable 해보니, 오류가 사라졌습니다. 그렇다면 맨 처음에는 왜 오류를 잡아내지 못한 걸까요??
 
+## VScode 익스텐션은 편의기능이다.
 
-> ## VScode 익스텐션은 편의기능이다.
-
-사실 eslint 의 코드 기능은 명령어를 통해서 작동합니다.
+사실 eslint 의 기능은 명령어를 통해서 작동합니다.
 
 ```javascript
 "scripts": {
@@ -87,6 +84,6 @@ eslint 를 프로젝트에 적용 시키기 위해서 설정을 해 주어야 �
 
 와 같이 스크립트를 추가 해주고
 
-터미널에 `npm run lint`
-
+터미널에   
+`npm run lint`  
 를 입력시 eslint 가 영역내 파일을 모두 검사하여 오류를 보내주게 되어있습니다.
