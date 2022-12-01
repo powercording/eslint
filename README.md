@@ -15,8 +15,8 @@
 ```javascript
 const forNoUse = "사용하지 않는 변수";
 
-console.log("foo");
-console.log("bar");
+console.log("foo");;;;;;;
+console.log("bar")
 ```
 
 확장기능 설치 만으로는 eslint 가 작동하는것 처럼 보이지 않습니다.  
