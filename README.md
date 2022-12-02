@@ -94,3 +94,5 @@ VScode 의 eslint 익스텐션기능은 명령어 없이 실시간으로 텍스�
 
 ## 이번편은 기본편
 이정도 까지의 과정으로 기본적인 eslint 를 적용하는데 어려움이 없을것이라 생각합니다. 제가 조금 더 공부를 해서 lint 를 조금 더 커스텀 할 수 있는 방법을 작성 해보도록 하겠습니다. 
+
+[eslint설정하기](https://github.com/powercording/eslint/tree/main/src)
