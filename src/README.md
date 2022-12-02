@@ -109,3 +109,60 @@ vscode 의 setting.json 파일입니다.
 환경 설정에서 디폴트 포맷터가 프리티어로 되어 있는지도 확인해주세요.
 
 ## eslint 한번 더 자동화 하기.
+이제 우리는 실시간으로 코드의 오류를 잡아내고, 저장 할 때마다 프리티어가 eslint 내용대로 포멧팅을 해줄 것이라 기대할 수 있습니다. 그렇지만 만약에 우리가 오류가 있는 파일을 저장하기 전에 커밋을 하는 실수를 저지를 수도 있습니다.  만약에라도 말이죠.그러한 상황을 막기 위해서 
+커밋 이전에 지정한 명령어가 실행 되도록 셋팅 할 수 있습니다. 
+
+> 여기서 부터는 부가적인 영역이므로 윗 내용에만 만족하셔도 좋습니다.  
+
+## husky 와 lint-staged 사용하기
+제가 eslint 를 적용시키는 연습을 하며 가장 많이 마주쳤던 조합입니다. 
+- husky 를 사용하여 커밋 이전에 원하는 명령어를 동작 시킬 수 있습니다.
+- lint-staged 는 스테이지된 파일만 검사하게 합니다. eslint는 모든 파일을 검사하므로 시간을 조금이라도 절약 할 수 있겠죠.
+
+```npm
+npx mrm@2 lint-staged
+```
+해당 명령어 이후에 package.json 은 이렇게 됩니다.
+```json
+ "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
+    "prettier": "^2.8.0"
+  },
+  "dependencies": {
+    "save-dev": "0.0.1-security"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "prettier --write",
+    "*.js": "eslint"
+  }
+```
+
+`line-staged` 의 검사 파일 확장자를 상황에 맞게 변경하시고, 벨류에는 커밋 이전에 실행했으면 하는 명령어를 입력 할 수 있습니다. 
+
+이제 모든 커밋에 대하여 커밋이 실행되기 전에 
+`npx eslint .` , `npx prettier --write` 를 하는것과 같습니다. 만약 오류가 발생 한다면 커밋이 진행되지 않습니다. 
+
+## 발생 할수 있는 오류 잡기
+- 커밋시의 eslint 가 중첩되서 실행되는 현상이 있을 수 있습니다. husky 폴더의 pre-commit 파일에 해당 내용을 추가합니다.
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+exec >/dev/tty 2>&1      <<<< 요 라인을 추가해 주세요.
+
+npx lint-staged
+```
+이렇게 하면 다중실행 문제는 잡히는데, 발생한 원인이나 오류를 해결하는 원리는 아직 모르겠습니다. 
+- Delete'CR' 이라는 오류를 내뿜을 수 있습니다. `.eslintrc.json` 의 `rules`에 해당 내용을 추가합니다.
+```json
+ "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+  },
+```
