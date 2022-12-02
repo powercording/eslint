@@ -1,0 +1,38 @@
+{
+  "name": "eslintPractice",
+  "version": "1.0.0",
+  "description": "분명 우테코 주간 피드백에 eslint 를 사용해보라는 말이 있었던 것을 알고 있었는데, 어째서인지 프리티어면 되겠지 생각했었습니다. 프리코스가 끝나니까 '아 그게 있었지' 싶어서 이번에 접근을 해 보았습니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powercording/eslint.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/powercording/eslint/issues"
+  },
+  "homepage": "https://github.com/powercording/eslint#readme",
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
+    "prettier": "^2.8.0"
+  },
+  "dependencies": {
+    "save-dev": "0.0.1-security"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "prettier --write",
+    "*.js": "eslint"
+  }
+}
